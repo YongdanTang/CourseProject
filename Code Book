@@ -1,0 +1,193 @@
+COURSE PROJECT CODE BOOK
+
+Variables
+
+Subject:
+An integer between 1 and 30
+Designates one of 30 subjects who carried Samsung phones for data collection
+
+Activity:
+A character string with enumerated values:
+WALKING WALKING_UPSTAIRS WALKING_DOWNSTAIRS STANDING SEATING LAYING
+
+trainingOrTest:
+A character string
+“training”, “test”
+Some of the data was used for training; some for testing. This variable tells what the data in a particular row was used for.
+
+oneDataSet:
+A data frame with 10299 observations and 81 variables
+The complete data set with all mean- and std-related features, Subject, Activity, and data use (training or test)
+mean- and std-related features are numbers between -1 and 1.
+See definitions above for Subject and Activity.
+
+meansOfMeanStdbySubjectandActivity:
+A data frame with 180 observations and 81 variables
+The data set derived from oneDataSet by averaging the values of the linear and angular acceleration variables for each subject and activity
+The values of the means are numbers between -1 and 1.
+See definitions above for Subject and Activity.
+
+Mean- and std-related features:
+Among the initial 561 features in the input data set, we have selected the ones that calculate means or standard deviations. I included features with “meanFreq” in their names on the grounds that I don’t know enough to tell whether that is or is not a useful mean variable. Better safe than sorry. I did not include a set of variables (features 555 to 561) that are computed using a variable called “GravityMean” as the variables themselves are not means - they just happen to use GravityMean as an input (e.g,  
+angle(X,gravityMean)). This results in 46 “mean” variables and 33 “standard deviation” variables, for a total of 79 variables.
+
+79 features listed below
+A number between -1 and 1.
+Each feature selected has the format: 
+<time or frequency><<Body or Gravity><Acceleration or Gyro>< <empty>, Jerk, Mag, or JerkMag>.<mean, std, or meanFrequency>.< <empty>, X, Y, or Z axis>
+e.g., timeBodyAccelerationJerk.mean.Z, timeBodyGyro.mean.X or timeGravityAccelerationMag.mean
+Across from each of the variable you will find its number in the input features file and its original name in that file, to be found in the UCI HAR Dataset, at:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+	Selected feature name				 Feature# Original feature name
+ [1] timeBodyAcceleration.mean.X                    		1 tBodyAcc-mean()-X
+ [2] timeBodyAcceleration.mean.Y                  		2 tBodyAcc-mean()-Y
+ [3] timeBodyAcceleration.mean.Z                    		3 tBodyAcc-mean()-Z
+ [4] timeBodyAcceleration.std.X                    		4 tBodyAcc-std()-X
+ [5] timeBodyAcceleration.std.Y                     		5 tBodyAcc-std()-Y
+ [6] timeBodyAcceleration.std.Z                    		6 tBodyAcc-std()-Z
+ [7] timeGravityAcceleration.mean.X                 		41 tGravityAcc-mean()-X
+ [8] timeGravityAcceleration.mean.Y                		42 tGravityAcc-mean()-Y
+ [9] timeGravityAcceleration.mean.Z                 		43 tGravityAcc-mean()-Z
+[10] timeGravityAcceleration.std.X                 		44 tGravityAcc-std()-X
+[11] timeGravityAcceleration.std.Y                  		45 tGravityAcc-std()-Y
+[12] timeGravityAcceleration.std.Z                 		46 tGravityAcc-std()-Z
+[13] timeBodyAccelerationJerk.mean.X               		81 tBodyAccJerk-mean()-X
+[14] timeBodyAccelerationJerk.mean.Y               		82 tBodyAccJerk-mean()-Y
+[15] timeBodyAccelerationJerk.mean.Z               		83 tBodyAccJerk-mean()-Z
+[16] timeBodyAccelerationJerk.std.X                		84 tBodyAccJerk-std()-X
+[17] timeBodyAccelerationJerk.std.Y                		85 tBodyAccJerk-std()-Y
+[18] timeBodyAccelerationJerk.std.Z                		86 tBodyAccJerk-std()-Z
+[19] timeBodyGyro.mean.X                            		121 tBodyGyro-mean()-X
+[20] timeBodyGyro.mean.Y                           		122 tBodyGyro-mean()-Y
+[21] timeBodyGyro.mean.Z                            		123 tBodyGyro-mean()-Z
+[22] timeBodyGyro.std.X                            		124 tBodyGyro-std()-X
+[23] timeBodyGyro.std.Y                             		125 tBodyGyro-std()-Y
+[24] timeBodyGyro.std.Z                            		126 tBodyGyro-std()-Z
+[25] timeBodyGyroJerk.mean.X                        		161 tBodyGyroJerk-mean()-X
+[26] timeBodyGyroJerk.mean.Y                       		162 tBodyGyroJerk-mean()-Y
+[27] timeBodyGyroJerk.mean.Z                        		163 tBodyGyroJerk-mean()-Z
+[28] timeBodyGyroJerk.std.X                        		164 tBodyGyroJerk-std()-X
+[29] timeBodyGyroJerk.std.Y                         		165 tBodyGyroJerk-std()-Y
+[30] timeBodyGyroJerk.std.Z                        		166 tBodyGyroJerk-std()-Z
+[31] timeBodyAccelerationMag.mean                   		201 tBodyAccMag-mean()
+[32] timeBodyAccelerationMag.std                   		202 tBodyAccMag-std()
+[33] timeGravityAccelerationMag.mean                		214 tGravityAccMag-mean()
+[34] timeGravityAccelerationMag.std                		215 tGravityAccMag-std()
+[35] timeBodyAccelerationJerkMag.mean               		227 tBodyAccJerkMag-mean()
+[36] timeBodyAccelerationJerkMag.std               		228 tBodyAccJerkMag-std()
+[37] timeBodyGyroMag.mean                           		240 tBodyGyroMag-mean()
+[38] timeBodyGyroMag.std                           		241 tBodyGyroMag-std()
+[39] timeBodyGyroJerkMag.mean                       		253 tBodyGyroJerkMag-mean()
+[40] timeBodyGyroJerkMag.std                       		254 tBodyGyroJerkMag-std()
+[41] frequencyBodyAcceleration.mean.X               		266 fBodyAcc-mean()-X
+[42] frequencyBodyAcceleration.mean.Y              		267 fBodyAcc-mean()-Y
+[43] frequencyBodyAcceleration.mean.Z               		268 fBodyAcc-mean()-Z
+[44] frequencyBodyAcceleration.std.X               		269 fBodyAcc-std()-X
+[45] frequencyBodyAcceleration.std.Y                		270 fBodyAcc-std()-Y
+[46] frequencyBodyAcceleration.std.Z               		271 fBodyAcc-std()-Z
+[47] frequencyBodyAcceleration.meanFrequency.X      		294 fBodyAcc-meanFreq()-X
+[48] frequencyBodyAcceleration.meanFrequency.Y     		295 fBodyAcc-meanFreq()-Y
+[49] frequencyBodyAcceleration.meanFrequency.Z      		296 fBodyAcc-meanFreq()-Z
+[50] frequencyBodyAccelerationJerk.mean.X          		345 fBodyAccJerk-mean()-X
+[51] frequencyBodyAccelerationJerk.mean.Y           		346 fBodyAccJerk-mean()-Y
+[52] frequencyBodyAccelerationJerk.mean.Z          		347 fBodyAccJerk-mean()-Z
+[53] frequencyBodyAccelerationJerk.std.X            		348 fBodyAccJerk-std()-X
+[54] frequencyBodyAccelerationJerk.std.Y           		349 fBodyAccJerk-std()-Y
+[55] frequencyBodyAccelerationJerk.std.Z            		350 fBodyAccJerk-std()-Z
+[56] frequencyBodyAccelerationJerk.meanFrequency.X 		373 fBodyAccJerk-meanFreq()-X
+[57] frequencyBodyAccelerationJerk.meanFrequency.Y  		374 fBodyAccJerk-meanFreq()-Y
+[58] frequencyBodyAccelerationJerk.meanFrequency.Z 		375 fBodyAccJerk-meanFreq()-Z
+[59] frequencyBodyGyro.mean.X                       		424 fBodyGyro-mean()-X
+[60] frequencyBodyGyro.mean.Y                      		425 fBodyGyro-mean()-Y
+[61] frequencyBodyGyro.mean.Z                       		426 fBodyGyro-mean()-Z
+[62] frequencyBodyGyro.std.X                       		427 fBodyGyro-std()-X
+[63] frequencyBodyGyro.std.Y                        		428 fBodyGyro-std()-Y
+[64] frequencyBodyGyro.std.Z                       		429 fBodyGyro-std()-Z
+[65] frequencyBodyGyro.meanFrequency.X              		452 fBodyGyro-meanFreq()-X
+[66] frequencyBodyGyro.meanFrequency.Y             		453 fBodyGyro-meanFreq()-Y
+[67] frequencyBodyGyro.meanFrequency.Z              		454 fBodyGyro-meanFreq()-Z
+[68] frequencyBodyAccelerationMag.mean             		503 fBodyAccMag-mean()
+[69] frequencyBodyAccelerationMag.std               		504 fBodyAccMag-std()
+[70] frequencyBodyAccelerationMag.meanFrequency    		513 fBodyAccMag-meanFreq()
+[71] frequencyBodyAccelerationJerkMag.mean          		516 fBodyBodyAccJerkMag-mean()
+[72] frequencyBodyAccelerationJerkMag.std          		517 fBodyBodyAccJerkMag-std()
+[73] frequencyBodyAccelerationJerkMag.meanFrequency 		526 fBodyBodyAccJerkMag-meanFreq()
+[74] frequencyBodyGyroMag.mean                     		529 fBodyBodyGyroMag-mean()
+[75] frequencyBodyGyroMag.std                      		530 fBodyBodyGyroMag-std()
+[76] frequencyBodyGyroMag.meanFrequency            		539 fBodyBodyGyroMag-meanFreq()
+[77] frequencyBodyGyroJerkMag.mean                 		542 fBodyBodyGyroJerkMag-mean()
+[78] frequencyBodyGyroJerkMag.std                  		543 fBodyBodyGyroJerkMag-std()
+[79] frequencyBodyGyroJerkMag.meanFrequency        		552 fBodyBodyGyroJerkMag-meanFreq()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The set of variables that were estimated from these signals are: 
+
+mean(): Mean value
+std(): Standard deviation
+mad(): Median absolute deviation 
+max(): Largest value in array
+min(): Smallest value in array
+sma(): Signal magnitude area
+energy(): Energy measure. Sum of the squares divided by the number of values. 
+iqr(): Interquartile range 
+entropy(): Signal entropy
+arCoeff(): Autorregresion coefficients with Burg order equal to 4
+correlation(): correlation coefficient between two signals
+maxInds(): index of the frequency component with largest magnitude
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+skewness(): skewness of the frequency domain signal 
+kurtosis(): kurtosis of the frequency domain signal 
+bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+angle(): Angle between to vectors.
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
+
+The complete list of variables of each feature vector is available in 'features.txt'
