@@ -28,6 +28,6 @@ The script "translates" activity numbers into activity names to make that data m
 
 This is not an explicit part of the problem statement, but I decided to keep track of which data were assigned to training, and which to testing. This might come in handy for future users for whom the distinction may be important. So I created an extra column denoting whether an observation came from the test set or from the training set. It is an additional column in the first tidy data set. I did not keep this column in the second tidy data set, as it is clear that we are only interested in the means by subject and activity in that case.
 
-At this point, the script binds the subject, activity, trainortest, and features data in one dataframe for each of the training and testing sets of data; and then we merge these two dataframes into a single one.
+At this point, the script binds the subject, activity, trainortest, and features data in one dataframe for each of the training and testing sets of data; and then we merge these two dataframes into a single one. Here is a great representation of how the data is merged together: https://class.coursera.org/getdata-016/forum/thread?thread_id=50#comment-333 
 
 Finally, we calculate the means by subject and activity as required in the last step of the project description. We use the aggregate function to do so; we could also have used summarise_each or melted and dcast - these two approaches are illustrated as comments in the script as well.
