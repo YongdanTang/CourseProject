@@ -29,8 +29,7 @@ See definitions above for Subject and Activity; definitions below for features.
 
 features:
 Mean- and std-related features:
-Among the initial 561 features in the input data set, we have selected the ones that calculate means or standard deviations. I included features with “meanFreq” in their names on the grounds that I don’t know enough to tell whether that is or is not a useful mean variable. Better safe than sorry. I did not include a set of variables (features 555 to 561) that are computed using a variable called “GravityMean” as the variables themselves are not means - they just happen to use GravityMean as an input (e.g,  
-angle(X,gravityMean)). This results in 46 “mean” variables and 33 “standard deviation” variables, for a total of 79 variables.
+Among the initial 561 features in the input data set, we have selected the ones that calculate means or standard deviations. I included features with “meanFreq” in their names on the grounds that I don’t know enough to tell whether that is or is not a useful mean variable. Better safe than sorry. I did not include a set of variables (features 555 to 561) that are computed using a variable called “GravityMean” as the variables themselves are not means - they just happen to use GravityMean as an input (e.g, angle(X,gravityMean)). This results in 46 “mean” variables and 33 “standard deviation” variables, for a total of 79 variables.
 
 79 features listed below
 A number between -1 and 1.
@@ -129,74 +128,4 @@ X/Y/Z: acceleration axis.
 [78] frequencybodygyrojerkmag.std                  		543 fBodyBodyGyroJerkMag-std()
 [79] frequencybodygyrojerkmag.meanfrequency        		552 fBodyBodyGyroJerkMag-meanFreq()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The set of variables that were estimated from these signals are: 
-
-mean(): Mean value
-std(): Standard deviation
-mad(): Median absolute deviation 
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values. 
-iqr(): Interquartile range 
-entropy(): Signal entropy
-arCoeff(): Autorregresion coefficients with Burg order equal to 4
-correlation(): correlation coefficient between two signals
-maxInds(): index of the frequency component with largest magnitude
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): skewness of the frequency domain signal 
-kurtosis(): kurtosis of the frequency domain signal 
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between to vectors.
-
-Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
-
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
-
-The complete list of variables of each feature vector is available in 'features.txt'
+The intial, complete, 561-long list of features is available in 'features.txt' in the UCI HAR Dataset folder.
